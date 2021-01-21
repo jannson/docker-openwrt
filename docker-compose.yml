@@ -3,8 +3,8 @@ openwrt:
   container_name: openwrt
   hostname: OpenWrt
   ports:
-    - "8022:22/tcp"
-    - "8080:80/tcp"
+    - "6022:22/tcp"
+    - "6080:80/tcp"
   volumes:
     - ./ipk:/tmp/ipk
   privileged: no
@@ -44,6 +44,13 @@ mt7628:
   image: easypi/openwrt:mt7628
   volumes:
     - ./data/mt7628:/data
+
+mt7620:
+  extends:
+    service: base
+  image: easypi/openwrt:mt7620
+  volumes:
+    - /projects/openwrt/mt7620:/data
 
 x86-64:
   extends:
